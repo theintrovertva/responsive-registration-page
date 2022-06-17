@@ -69,6 +69,12 @@ p{
 	border-radius: 15px;
 	box-shadow: 0 5px hsla(249, 10%, 26%, 0.404);
 }
+.rightcolumn .info p{
+	margin-top: -5px;
+	padding-top: 10px;
+	justify-content: center;
+	align-items: center;
+}
 .rightcolumn .info span{
 	font-weight: 700;
 }
@@ -108,11 +114,11 @@ p{
 }
 .rightcolumn .inputbox input:focus:invalid ~.error{
 	position: relative;
-  	margin: 16px;
+  	margin: 25px;
 }
 .rightcolumn .inputbox input:focus:invalid{
 	background: url(icon-errors.svg) no-repeat 95% 50%;
-  	background-size: 16px;
+  	background-size: 25px;
 	background-position: right;
   	border: 2px solid hsl(0, 100%, 74%);
   	transition: border 10ms;
