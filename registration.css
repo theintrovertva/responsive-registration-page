@@ -11,9 +11,10 @@ body{
 }
 
 #reg{
-	min-height: 100vh;
-	width: 100%;
+	min-height: 100px;
+	max-width: 1440px;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	padding: 100px 0;
@@ -23,20 +24,21 @@ body{
 	align-items: center;
 	justify-content: space-between;
 	text-align: center;
-	padding: 0 30px;
-	max-width: 1440px;
-	height: 100vh;
+	width: 80%;
+	padding: 0 64px;
 	margin: 0 auto;
 	display: flex;
+	height: auto;
 	
 }
 .leftcolumn{
 	flex: 1;
-	margin-bottom: 50px;
+	padding-top: 100px;
 }
 
 h2{
     font-size: 45px;
+	line-height: 44px;
 	font-weight: 700;
 	color: white;
 	margin-bottom: 10px;
@@ -47,14 +49,20 @@ p{
     font-size: 16px;
 	color: white;
 	text-align: left;
-	word-spacing: 2px;
-	line-height: 25px;
-	letter-spacing: 2px;
+	line-height: 20px;
+	font-weight: 600px;
 
 }
 
 .rightcolumn{
 	flex: 1;
+	margin-right: -20px;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	max-height: 40vh;
+	margin-top: -40px;
+	padding-bottom: 20px;
 }
 
 .rightcolumn .info {
@@ -62,8 +70,8 @@ p{
 	color: white;
 	height: 5vh;
 	font-size: 16px; 
-	padding: 10px 80px;
 	margin-bottom: 20px;
+	padding: 0 40px;
 	padding-bottom: 10px;
 	text-align: center;
 	border-radius: 15px;
@@ -71,18 +79,19 @@ p{
 }
 .rightcolumn .info p{
 	margin-top: -5px;
-	padding-top: 10px;
+	padding-top: 18px;
 	justify-content: center;
 	align-items: center;
+	margin-left: 30px;
+	padding-left: 30px;
 }
 .rightcolumn .info span{
 	font-weight: 700;
 }
 .rightcolumn .form-container{
 	background-color: white;
-	width: 600px;
-	height: 70vh;
-	padding: 30px;
+	padding: 20px;
+	max-height: 70vh;
 	border-radius: 20px;
 	box-shadow: 0 5px hsla(249, 10%, 26%, 0.404);
 }
@@ -92,15 +101,15 @@ p{
 }
 .rightcolumn .inputbox input,
 .rightcolumn button[type = submit]{
-	width: 100%;
-	height: 60px;
-	margin-bottom: 5px;
+	width: 90%;
+	height: 50px;
+	margin-bottom: 15px;
 	padding-left: 20px;
 	outline: none;
 	font-size: 16px;
 	color: hsl(249, 10%, 26%);
 	border: 1px solid hsl(246, 25%, 77%);
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .rightcolumn .input::placeholder{
@@ -112,51 +121,206 @@ p{
 	color:(249, 10%, 26%);
 	font-size: 12px;
 }
-.rightcolumn .inputbox input:focus:invalid ~.error{
-	position: relative;
-  	margin: 25px;
-}
-.rightcolumn .inputbox input:focus:invalid{
-	background: url(icon-errors.svg) no-repeat 95% 50%;
-  	background-size: 25px;
-	background-position: right;
-  	border: 2px solid hsl(0, 100%, 74%);
-  	transition: border 10ms;
-}
+
 .rightcolumn .inputbox input:focus:invalid ~.error::after {
 	content: attr(data-error);
 	position: absolute;
 	bottom: 0;
 	font-style: italic;
 	font-size: 12px;
-	font-weight: 500;
+	font-weight: 700;
 	right: 0;
-	padding-bottom: 14px;
+	padding-bottom: 10px;
+	margin-right: 7px;
 	color: hsl(0, 100%, 74%);
-  }
+}
+.rightcolumn .inputbox input:focus:invalid ~.error{
+	position: relative;
+  	margin: 25px;
+}
+.rightcolumn .inputbox input:required:focus:invalid {
+	border: 2px solid hsl(0, 100%, 74%);
+	background-image: url(icon-error.svg);
+	background-repeat: no-repeat;
+	background-position: right;
+	background-origin: content-box;
+}
+.rightcolumn .inputbox input:invalid+span {
+	display: inline;
+	color: hsl(0, 100%, 74%);
+	float: right;
+	font-size: 14px;
+}
+.rightcolumn .inputbox input:invalid {
+	border: 1px solid hsl(154, 59% 31%);
+}
   
 .rightcolumn button[type="submit"]{
 	cursor: pointer;
-	width: 350px;
 	background-color: hsl(154, 59%, 51%);
 	box-shadow: 0 0 10px hsl(154, 56%, 44%);
 	color:#fff;
-	padding: 15px;
-	font-size: 16px;
-	font-weight: 500;
+	width: 480px;
+	padding-top: 5px;
+	font-size: 14px;
+	font-weight: 700;
 	border: none;
 	align-items: center;
     letter-spacing: 2px;
 }
 .rightcolumn button[type="submit"]:hover{
 	box-shadow: 2px 2px 5px;
-    background-color: hsl(248, 32%, 49%);
-    color:black;
+    background-color: hsl(154, 56%, 50%);
+    color:white;
 }
 .rightcolumn .formfooter{
-	margin-top: 10px;
+	margin-top: -10px;
+	font-size: 10px;
+	text-align: center;
+	justify-content: center;
+	font-weight: 500;
 	color: hsl(246, 25%, 77%);
 }
 .rightcolumn .formfooter span{
 	color:hsl(0, 100%, 74%);
+}
+
+@media screen and (max-width: 1440px){
+	.reg{
+		min-height: 100px;
+		max-width: 1440px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		padding: 100px 0;
+	}
+}
+
+@media screen and (max-width: 375px){
+	body{
+		background-image: url(bg-intro-mobile.png);
+		background-size: cover;
+		background-position: center;
+		background-color: hsl(0, 100%, 74%);
+		align-items: center;;
+	}
+	#reg{
+		max-width: 375px;
+		flex-direction: column;
+		display: grid;
+	}
+	.container{
+		width: 100%;
+		display: grid;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.leftcolumn{
+		padding-top: 5px;
+		margin-top: -90px;
+		width: 100%;
+		justify-content: center;
+		align-content: center;
+	}
+	h2{
+		font-size: 25px;
+		line-height: 24px;
+		font-weight: 700;
+		margin-bottom: 10px;
+		margin-right: 45px;
+		text-align: center;
+		justify-content: center;
+	}
+	p{
+		font-size: 12px;
+		line-height: 16px;
+		font-weight: 400;
+		margin-bottom: 50px;
+		margin-right: 45px;
+		padding-left: 20px;
+		padding-right: 20px;
+		text-align: center;
+	
+	}
+	.rightcolumn{
+		flex: 1;
+		width: 85%;
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 20px;
+	}
+	.rightcolumn .info {
+		font-size: 10px; 
+		padding: 0 1px;
+		padding-bottom: 10px;
+		text-align: center;
+		margin-left: 5px;
+	}
+	.rightcolumn .info p{
+		margin-top: -5px;
+		padding-top: 10px;
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 9px;
+	}
+	.rightcolumn .form-container{
+		padding: 10px;
+		max-height: 140vh;
+		margin-bottom: 30px;
+	}
+	.inputbox{
+		position: relative;
+	}
+	.rightcolumn .inputbox input,
+	.rightcolumn button[type = submit]{
+		width: 90%;
+		height: 40px;
+		margin-bottom: 8px;
+		padding-left: 10px;
+		outline: none;
+		font-size: 10px;
+	}
+	
+	.rightcolumn .input::placeholder{
+		font-size: 10px;
+	}
+	.rightcolumn .inputbox input:focus{
+		color:(249, 10%, 26%);
+		font-size: 10px;
+	}
+	
+	.rightcolumn .inputbox input:focus:invalid ~.error::after {
+		content: attr(data-error);
+		position: absolute;
+		bottom: 0;
+		font-style: italic;
+		font-size: 10px;
+		font-weight: 700;
+		right: 0;
+		padding-bottom: 8px;
+		margin-right: 15px;
+		color: hsl(0, 100%, 74%);
+	}
+	.rightcolumn .inputbox input:focus:invalid ~.error{
+		position: relative;
+		  margin: 15px;
+	}
+	.rightcolumn .inputbox input:invalid+span {
+		display: inline;
+		color: hsl(0, 100%, 74%);
+		float: right;
+		font-size: 10px;
+	}
+	.rightcolumn button[type="submit"]{
+		padding-top: 5px;
+		font-size: 12px;
+	}
+	.rightcolumn .formfooter{
+		margin-top: -7px;
+		margin-bottom: -7px;
+		margin-right: 5px;
+		font-size: 6px;
+		text-align: center;
+	}
 }
